@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using WebAPI.BusinessLogic.Contracts;
 using System.Linq;
+using System;
 
 namespace WebAPI.Services
 {
@@ -20,6 +21,19 @@ namespace WebAPI.Services
             
             return users.Select(x => x.ToDTO())
                 .ToList();
+        }
+
+        public DTO.User GetuserById(Guid id)
+        {
+            var user = _repository.User.FindById(id);
+
+            return user.ToDTO();
+        }
+
+        public void InsertUser(DTO.User user)
+        {
+            
+            _repository.User.InsertUser(user);
         }
     }
 }

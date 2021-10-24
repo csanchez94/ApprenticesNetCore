@@ -32,6 +32,7 @@ namespace WebAPI
                 opts.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
 
             services.AddTransient<UserService>();
+            services.AddTransient<CourseService>();
 
             services.AddScoped<IRepositoryManager, RepositoryManager>();
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using WebAPI.Services;
 
@@ -20,5 +21,19 @@ namespace WebAPI.Controllers
         {
             return _userService.GetUsers();
         }
+
+        [HttpGet("{id}")]
+        public DTO.User GetById(Guid id)
+        {
+            return _userService.GetuserById(id);
+        }
+
+        [HttpPost]
+        public void Post(DTO.User user )
+        {
+            _userService.InsertUser(user);
+        }
+
+
     }
 }
